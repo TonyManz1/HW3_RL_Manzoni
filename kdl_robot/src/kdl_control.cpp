@@ -85,7 +85,7 @@ Eigen::VectorXd KDLController::idCntr(KDL::Frame &_desPos,
                                                                        R_d,
                                                                        R_e);
 
-   //Errors                                                                 
+   // Errors                                                                 
    Eigen::Matrix<double,6,1> x_tilde;
    Eigen::Matrix<double,6,1> dot_x_tilde;
    x_tilde << e_p, e_o_w[0],e_o[1],e_o[2];
@@ -125,7 +125,7 @@ Eigen::VectorXd KDLController::idCntr(KDL::Frame &_desPos,
    Eigen::Matrix<double,6,1> y;
    y << dot_dot_x_d - robot_->getEEJacDotqDot() + Kd*dot_x_tilde + Kp*x_tilde;
 
-   //RETURN By + n
+   // RETURN By + n
    return M * (Jpinv*y)+ robot_->getGravity() + robot_->getCoriolis();
 }
 
@@ -176,7 +176,7 @@ Eigen::VectorXd KDLController::idCntr(KDL::Frame &_desPos,
    /*APPLYING FORMULAE 4 (HW_2)*/
    y << dot_dot_x_d - robot_->getEEJacDotqDot_yellow() + Kd*dot_x_tilde + Kp*x_tilde;
    
-   //RETURN By + n
+   // RETURN By + n
    return M * (Jpinv*y)+ robot_->getGravity() + robot_->getCoriolis();
 
 }
